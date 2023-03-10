@@ -187,6 +187,7 @@ lazy.setup({
   { 'norcalli/nvim-colorizer.lua' },
   { 'mrjones2014/nvim-ts-rainbow' },
   { 'mbbill/undotree' },
+  { 'github/copilot.vim' },
 
   -- LSP support
   { 'neovim/nvim-lspconfig' },
@@ -485,6 +486,13 @@ cmp.setup({
     end, { 'i', 's' }),
   },
 })
+
+---
+-- Copilot
+---
+
+vim.g.copilot_assume_mapped = true
+
 
 ---
 -- Blamer

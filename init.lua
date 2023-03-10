@@ -213,6 +213,9 @@ lazy.setup({
   { 'neovim/nvim-lspconfig' },
   { 'j-hui/fidget.nvim' },
 
+  -- Ruby
+  { 'vim-ruby/vim-ruby' },
+
   -- Autocomplete
   { 'hrsh7th/nvim-cmp' },
   { 'hrsh7th/cmp-buffer' },

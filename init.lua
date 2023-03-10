@@ -176,6 +176,7 @@ lazy.setup({
   { 'tpope/vim-repeat' },
   { 'tpope/vim-endwise' },
   { 'lukas-reineke/indent-blankline.nvim' },
+  { 'alvan/vim-closetag' },
 
   -- Utilities
   { 'moll/vim-bbye' },

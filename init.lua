@@ -36,6 +36,8 @@ vim.keymap.set('n', '<leader>w', '<cmd>write<cr>')
 vim.keymap.set('n', '<leader>bq', '<cmd>bdelete<cr>')
 vim.keymap.set('n', '<leader>bl', '<cmd>buffer #<cr>')
 
+vim.keymap.set('n', 'H', '<cmd>BufferLineCyclePrev<cr><CR>')
+vim.keymap.set('n', 'L', '<cmd>BufferLineCycleNext<CR>')
 
 -- ========================================================================== --
 -- ==                               COMMANDS                               == --

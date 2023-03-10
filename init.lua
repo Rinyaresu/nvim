@@ -222,8 +222,8 @@ lazy.setup({
       "nvim-telescope/telescope.nvim"
     }
   },
-
-
+  { 'phaazon/mind.nvim',           branch = 'v2.2', requires = { 'nvim-lua/plenary.nvim' }, },
+  { 'stevearc/dressing.nvim' },
 
   -- LSP support
   { 'neovim/nvim-lspconfig' },
@@ -244,6 +244,7 @@ lazy.setup({
   { 'L3MON4D3/LuaSnip' },
   { 'rafamadriz/friendly-snippets' },
 })
+
 
 
 -- ========================================================================== --
@@ -412,6 +413,16 @@ vim.keymap.set('n', '<leader>fr', '<cmd>Telescope oldfiles<CR>')
 vim.keymap.set('n', '<leader><tab>', '<cmd>Telescope git_status<CR>')
 
 require('telescope').load_extension('fzf')
+
+---
+-- mind
+---
+-- See :help mind.setup
+
+vim.keymap.set('n', '<leader>mp', ':MindOpenMain<CR>')
+vim.keymap.set('n', '<leader>mc', ':MindClose<CR>')
+
+require 'mind'.setup {}
 
 
 ---

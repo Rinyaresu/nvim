@@ -118,6 +118,43 @@ lazy.setup({
 
   -- File explorer
   { 'kyazdani42/nvim-tree.lua' },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    cmd = "Neotree",
+    keys = {
+      {
+        "<leader>e",
+        function()
+          require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
+        end,
+        desc = "Explorer NeoTree (cwd)",
+      },
+    },
+    deactivate = function()
+      vim.cmd([[Neotree close]])
+    end,
+    init = function()
+      vim.g.neo_tree_remove_legacy_commands = 1
+      if vim.fn.argc() == 1 then
+        local stat = vim.loop.fs_stat(vim.fn.argv(0))
+        if stat and stat.type == "directory" then
+          require("neo-tree")
+        end
+      end
+    end,
+    opts = {
+      filesystem = {
+        bind_to_cwd = true,
+        follow_current_file = true,
+      },
+      window = {
+        mappings = {
+          ["<space>"] = "none",
+        },
+      },
+    },
+  },
+  { "MunifTanjim/nui.nvim" },
 
   -- Fuzzy finder
   { 'nvim-telescope/telescope.nvim',              branch = '0.1.x' },
@@ -335,26 +372,6 @@ require('telescope').load_extension('fzf')
 
 
 ---
--- nvim-tree (File explorer)
----
--- See :help nvim-tree-setup
-require('nvim-tree').setup({
-  hijack_cursor = false,
-  on_attach = function(bufnr)
-    local bufmap = function(lhs, rhs, desc)
-      vim.keymap.set('n', lhs, rhs, { buffer = bufnr, desc = desc })
-    end
-
-    -- :help nvim-tree.api
-    local api = require('nvim-tree.api')
-
-    bufmap('L', api.node.open.edit, 'Expand folder or go to file')
-    bufmap('H', api.node.navigate.parent_close, 'Close parent folder')
-    bufmap('gh', api.tree.toggle_hidden_filter, 'Toggle hidden files')
-  end
-})
-
-vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeToggle<cr>')
 
 
 ---

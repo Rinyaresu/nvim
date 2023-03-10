@@ -653,6 +653,7 @@ if vim.g.lsp_setup_ready == nil then
   lspconfig.cssls.setup({})
   lspconfig.eslint.setup({})
   lspconfig.lua_ls.setup({})
+	lspconfig.tailwindcss.setup {}
   lspconfig.tsserver.setup({
     settings = {
       completions = {

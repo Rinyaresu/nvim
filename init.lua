@@ -188,6 +188,7 @@ lazy.setup({
   { 'mrjones2014/nvim-ts-rainbow' },
   { 'mbbill/undotree' },
   { 'github/copilot.vim' },
+  { 'wakatime/vim-wakatime' },
 
   -- LSP support
   { 'neovim/nvim-lspconfig' },

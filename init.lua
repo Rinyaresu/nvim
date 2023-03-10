@@ -552,7 +552,6 @@ require("chatgpt").setup({})
 ---
 -- Blamer
 ---
-
 vim.g.blamer_enabled = 1
 
 ---
@@ -590,6 +589,7 @@ vim.diagnostic.config({
   underline = true,
   virtual_text = true,
   severity_sort = true,
+	update_in_insert = false,
   float = {
     border = 'rounded',
     source = 'always',

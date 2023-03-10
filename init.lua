@@ -186,6 +186,7 @@ lazy.setup({
   { 'windwp/nvim-autopairs' },
   { 'norcalli/nvim-colorizer.lua' },
   { 'mrjones2014/nvim-ts-rainbow' },
+  { 'mbbill/undotree' },
 
   -- LSP support
   { 'neovim/nvim-lspconfig' },
@@ -372,6 +373,9 @@ require('telescope').load_extension('fzf')
 
 
 ---
+-- Undotree
+--
+vim.keymap.set('n', '<leader>fu', vim.cmd.UndotreeToggle)
 
 
 ---

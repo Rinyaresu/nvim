@@ -2,29 +2,7 @@
 -- ==                           EDITOR SETTINGS                            == --
 -- ========================================================================== --
 
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.mouse = 'a'
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
-vim.opt.wrap = false
-vim.opt.breakindent = true
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = false
-vim.opt.signcolumn = 'yes'
-vim.opt.smartindent = true
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = os.getenv('HOME') .. '/.vim/undodir'
-vim.opt.undofile = true
-vim.opt.updatetime = 50
-vim.opt.colorcolumn = '80'
-
--- Space as leader key
-vim.g.mapleader = ' '
+require('core.set')
 
 -- Shortcuts
 vim.keymap.set({ 'n', 'x', 'o' }, '<leader>h', '^')
@@ -32,8 +10,8 @@ vim.keymap.set({ 'n', 'x', 'o' }, '<leader>l', 'g_')
 vim.keymap.set('n', '<leader>a', ':keepjumps normal! ggVG<cr>')
 
 -- Basic clipboard interaction
-vim.keymap.set({ 'n', 'x' }, 'cp', '"+y')
-vim.keymap.set({ 'n', 'x' }, 'cv', '"+p')
+vim.keymap.set({ 'n', 'x' }, 'y', '"+y')
+vim.keymap.set({ 'n', 'x' }, 'p', '"+p')
 
 -- Delete text
 vim.keymap.set({ 'n', 'x' }, 'x', '"_x')
@@ -255,9 +233,7 @@ lazy.setup({
 ---
 -- Colorscheme
 ---
-vim.opt.termguicolors = true
 vim.cmd.colorscheme('tokyonight-night')
-
 
 ---
 -- vim-bbye
@@ -287,10 +263,6 @@ require("indent_blankline").setup {
 ---
 require 'colorizer'.setup()
 
----
--- lualine.nvim (statusline)
----
-vim.opt.showmode = false
 
 -- See :help lualine.txt
 --

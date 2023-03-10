@@ -189,6 +189,25 @@ lazy.setup({
   { 'mbbill/undotree' },
   { 'github/copilot.vim' },
   { 'wakatime/vim-wakatime' },
+  {
+    'jackMort/ChatGPT.nvim',
+    keys = {
+      { "<leader>i", "<cmd>ChatGPT<CR>", desc = "ChatGPT" }
+    },
+    config = function()
+      require("chatgpt").setup({
+        welcome_message = "",
+
+      })
+    end,
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
+  },
+
+
 
   -- LSP support
   { 'neovim/nvim-lspconfig' },
@@ -494,6 +513,11 @@ cmp.setup({
 
 vim.g.copilot_assume_mapped = true
 
+
+---
+-- ChatGPT
+---
+require("chatgpt").setup({})
 
 ---
 -- Blamer

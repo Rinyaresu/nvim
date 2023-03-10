@@ -39,6 +39,7 @@ vim.keymap.set('n', '<leader>bl', '<cmd>buffer #<cr>')
 vim.keymap.set('n', 'H', '<cmd>BufferLineCyclePrev<cr><CR>')
 vim.keymap.set('n', 'L', '<cmd>BufferLineCycleNext<CR>')
 
+
 -- ========================================================================== --
 -- ==                               COMMANDS                               == --
 -- ========================================================================== --
@@ -168,27 +169,26 @@ lazy.setup({
   -- Code manipulation
   { 'nvim-treesitter/nvim-treesitter' },
   { 'nvim-treesitter/nvim-treesitter-textobjects' },
-  { 'jxnblk/vim-mdx-js'},
+  { 'jxnblk/vim-mdx-js' },
   { 'numToStr/Comment.nvim' },
   { 'tpope/vim-surround' },
   { 'wellle/targets.vim' },
   { 'tpope/vim-repeat' },
-	{ 'tpope/vim-endwise' },
-	{ 'lukas-reineke/indent-blankline.nvim' },
+  { 'tpope/vim-endwise' },
+  { 'lukas-reineke/indent-blankline.nvim' },
 
   -- Utilities
   { 'moll/vim-bbye' },
   { 'nvim-lua/plenary.nvim' },
   { 'editorconfig/editorconfig-vim' },
   { 'akinsho/toggleterm.nvim' },
-	{ 'windwp/nvim-autopairs' },
-	{ 'norcalli/nvim-colorizer.lua' },
-	{ 'mrjones2014/nvim-ts-rainbow' },
-	
+  { 'windwp/nvim-autopairs' },
+  { 'norcalli/nvim-colorizer.lua' },
+  { 'mrjones2014/nvim-ts-rainbow' },
 
   -- LSP support
   { 'neovim/nvim-lspconfig' },
-	{ 'j-hui/fidget.nvim' },
+  { 'j-hui/fidget.nvim' },
 
   -- Autocomplete
   { 'hrsh7th/nvim-cmp' },
@@ -289,8 +289,7 @@ require('nvim-treesitter.configs').setup({
   highlight = {
     enable = true,
   },
-
-	rainbow = {
+  rainbow = {
     enable = true,
     -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
     extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
@@ -311,7 +310,6 @@ require('nvim-treesitter.configs').setup({
       }
     },
   },
-
   ensure_installed = {
     'javascript',
     'typescript',
@@ -395,7 +393,7 @@ require('luasnip.loaders.from_vscode').lazy_load()
 ---
 -- Fidget (Useful status updates for LSP)
 ---
-require"fidget".setup{}
+require "fidget".setup {}
 
 ---
 -- nvim-cmp (autocomplete)
@@ -520,8 +518,8 @@ sign({ name = 'DiagnosticSignInfo', text = '' })
 
 -- See :help vim.diagnostic.config()
 vim.diagnostic.config({
-	signs = true,
-	underline = true,
+  signs = true,
+  underline = true,
   virtual_text = true,
   severity_sort = true,
   float = {

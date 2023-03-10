@@ -161,6 +161,7 @@ lazy.setup({
   { 'nvim-telescope/telescope-fzf-native.nvim',   build = 'make' },
 
   -- Git
+  { 'APZelos/blamer.nvim' },
   { 'lewis6991/gitsigns.nvim' },
   { 'tpope/vim-fugitive' },
 
@@ -482,6 +483,11 @@ cmp.setup({
   },
 })
 
+---
+-- Blamer
+---
+
+vim.g.blamer_enabled = 1
 
 ---
 ---

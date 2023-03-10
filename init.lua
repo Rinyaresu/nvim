@@ -428,8 +428,7 @@ require 'mind'.setup {}
 ---
 -- Undotree
 --
-vim.keymap.set('n', '<leader>fu', vim.cmd.UndotreeToggle)
-
+vim.keymap.set('n', '<leader>fu', ":UndotreeToggle<CR> <BAR> :UndotreeFocus<CR>")
 
 ---
 -- toggleterm
@@ -542,7 +541,6 @@ cmp.setup({
 ---
 -- Copilot
 ---
-
 vim.g.copilot_assume_mapped = true
 
 

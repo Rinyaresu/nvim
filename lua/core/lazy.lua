@@ -140,7 +140,7 @@ lazy.setup({
 			"nvim-telescope/telescope.nvim"
 		}
 	},
-	{ 'phaazon/mind.nvim',           branch = 'v2.2', requires = { 'nvim-lua/plenary.nvim' }, },
+	{ 'phaazon/mind.nvim',     branch = 'v2.2', requires = { 'nvim-lua/plenary.nvim' }, },
 	{ 'stevearc/dressing.nvim' },
 
 	-- LSP support

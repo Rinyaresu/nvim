@@ -12,6 +12,9 @@ vim.keymap.set({ 'n', 'x' }, 'p', '"+p')
 -- Delete text
 vim.keymap.set({ 'n', 'x' }, 'x', '"_x')
 
+-- Delete line
+vim.keymap.set({ 'n', 'x' }, 'd', '"+d')
+
 -- Commands
 vim.keymap.set('n', '<leader>w', '<cmd>write<cr>')
 vim.keymap.set('n', '<leader>bq', '<cmd>bdelete<cr>')

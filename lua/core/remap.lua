@@ -46,4 +46,8 @@ vim.keymap.set('n', '<leader>fd', '<cmd>Telescope diagnostics<cr>')
 vim.keymap.set('n', '<leader>fs', '<cmd>Telescope current_buffer_fuzzy_find<cr>')
 vim.keymap.set('n', '<leader>fr', '<cmd>Telescope oldfiles<CR>')
 vim.keymap.set('n', '<leader><tab>', '<cmd>Telescope git_status<CR>')
+
+vim.api.nvim_set_keymap("n", "<leader>qs", [[<cmd>lua require("persistence").load()<cr>]], {})
+vim.api.nvim_set_keymap("n", "<leader>ql", [[<cmd>lua require("persistence").load({ last = true })<cr>]], {})
+
 vim.keymap.set('n', '<leader>gg', '<cmd>:LazyGit<CR>')

@@ -1,7 +1,8 @@
-require('plugins.lualine')
-require('plugins.treesitter')
-require('plugins.nvim-cmp')
-require('plugins.lsp')
+require('plugin.lualine')
+require('plugin.treesitter')
+require('plugin.nvim-cmp')
+require('plugin.lsp')
+require('plugin.chatgpt')
 
 ---
 -- Colorscheme
@@ -129,11 +130,6 @@ require "fidget".setup {}
 ---
 vim.g.copilot_assume_mapped = true
 
-
----
--- ChatGPT
----
-require("chatgpt").setup({})
 
 ---
 -- Blamer

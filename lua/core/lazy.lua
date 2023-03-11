@@ -170,6 +170,9 @@ lazy.setup({
 	{ 'neovim/nvim-lspconfig' },
 	{ 'j-hui/fidget.nvim' },
 	{ 'ray-x/lsp_signature.nvim' },
+	{ 'williamboman/mason.nvim' },
+	{ 'williamboman/mason-lspconfig.nvim' },
+
 
 	-- Ruby
 	{ 'vim-ruby/vim-ruby' },

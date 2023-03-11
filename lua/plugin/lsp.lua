@@ -4,6 +4,23 @@
 local lspconfig = require('lspconfig')
 local lsp_defaults = lspconfig.util.default_config
 
+require('mason').setup({
+	ui = { border = 'rounded' }
+})
+
+-- See :help mason-lspconfig-settings
+require('mason-lspconfig').setup({
+	ensure_installed = {
+		'tsserver',
+		'eslint',
+		'html',
+		'cssls',
+		'tailwindcss',
+		'marksman',
+		'jsonls',
+	}
+})
+
 require "lsp_signature".setup({
 	bind = true, -- This is mandatory, otherwise border config won't get registered.
 	handler_opts = {
@@ -98,40 +115,22 @@ vim.api.nvim_create_autocmd('LspAttach', {
 if vim.g.lsp_setup_ready == nil then
 	vim.g.lsp_setup_ready = true
 
+	require('mason-lspconfig').setup_handlers({
+		function(server)
+			lspconfig[server].setup({})
+		end,
+		['tsserver'] = function()
+			lspconfig.tsserver.setup({
+				settings = {
+					completions = {
+						completeFunctionCalls = true
+					}
+				}
+			})
+		end
+	})
+
 	-- See :help lspconfig-setup
-	lspconfig.html.setup({})
-	lspconfig.cssls.setup({})
-	lspconfig.eslint.setup({
-		on_attach = function(client, bufnr)
-			require "lsp_signature".on_attach(signature_setup, bufnr) -- Note: add in lsp client on-attach
-		end,
-	})
-	lspconfig.lua_ls.setup({
-		settings = {
-			Lua = {
-				diagnostics = {
-					-- Get the language server to recognize the `vim` global
-					globals = { 'vim' },
-				},
-				workspace = {
-					-- Make the server aware of Neovim runtime files
-					library = vim.api.nvim_get_runtime_file("", true),
-				},
-				-- Do not send telemetry data containing a randomized but unique identifier
-			},
-		},
-	})
-	lspconfig.tailwindcss.setup {}
-	lspconfig.tsserver.setup({
-		on_attach = function(client, bufnr)
-			require "lsp_signature".on_attach(signature_setup, bufnr) -- Note: add in lsp client on-attach
-		end,
-		settings = {
-			completions = {
-				completeFunctionCalls = true
-			}
-		},
-	})
 	lspconfig.solargraph.setup {
 		on_attach = function(client, bufnr)
 			require "lsp_signature".on_attach(signature_setup, bufnr) -- Note: add in lsp client on-attach

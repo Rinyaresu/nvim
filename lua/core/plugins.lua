@@ -17,14 +17,24 @@ require("nvim-autopairs").setup {}
 ---
 -- indent blankline
 ---
-require("indent_blankline").setup {
-	char = '▏',
-	show_trailing_blankline_indent = false,
-	show_first_indent_level = false,
-	use_treesitter = true,
-	show_current_context = true
-}
+vim.cmd [[highlight IndentBlanklineIndent1 guifg=#f7768e gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent2 guifg=#e0af68 gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent3 guifg=#9ece6a gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent4 guifg=#7dcfff gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent5 guifg=#7aa2f7 gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent6 guifg=#9d7cd8 gui=nocombine]]
 
+require("indent_blankline").setup {
+	space_char_blankline = " ",
+	char_highlight_list = {
+		"IndentBlanklineIndent1",
+		"IndentBlanklineIndent2",
+		"IndentBlanklineIndent3",
+		"IndentBlanklineIndent4",
+		"IndentBlanklineIndent5",
+		"IndentBlanklineIndent6",
+	},
+}
 ---
 -- colorizer
 ---

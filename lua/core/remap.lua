@@ -54,3 +54,6 @@ vim.api.nvim_set_keymap("n", "<leader>qs", [[<cmd>lua require("persistence").loa
 vim.api.nvim_set_keymap("n", "<leader>ql", [[<cmd>lua require("persistence").load({ last = true })<cr>]], {})
 
 vim.keymap.set('n', '<leader>gg', '<cmd>:LazyGit<CR>')
+vim.keymap.set('n', '<leader>gd', '<cmd>:DiffviewOpen<CR>')
+vim.keymap.set('n', '<leader>gl', '<cmd>:DiffviewFileHistory<CR>')
+vim.keymap.set('n', '<leader>gc', '<cmd>:DiffviewClose<CR><CR>')

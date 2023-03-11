@@ -4,6 +4,13 @@
 local lspconfig = require('lspconfig')
 local lsp_defaults = lspconfig.util.default_config
 
+require "lsp_signature".setup({
+	bind = true, -- This is mandatory, otherwise border config won't get registered.
+	handler_opts = {
+		border = "rounded"
+	}
+})
+
 lsp_defaults.capabilities = vim.tbl_deep_extend(
 	'force',
 	lsp_defaults.capabilities,
@@ -94,7 +101,11 @@ if vim.g.lsp_setup_ready == nil then
 	-- See :help lspconfig-setup
 	lspconfig.html.setup({})
 	lspconfig.cssls.setup({})
-	lspconfig.eslint.setup({})
+	lspconfig.eslint.setup({
+		on_attach = function(client, bufnr)
+			require "lsp_signature".on_attach(signature_setup, bufnr) -- Note: add in lsp client on-attach
+		end,
+	})
 	lspconfig.lua_ls.setup({
 		settings = {
 			Lua = {
@@ -112,6 +123,9 @@ if vim.g.lsp_setup_ready == nil then
 	})
 	lspconfig.tailwindcss.setup {}
 	lspconfig.tsserver.setup({
+		on_attach = function(client, bufnr)
+			require "lsp_signature".on_attach(signature_setup, bufnr) -- Note: add in lsp client on-attach
+		end,
 		settings = {
 			completions = {
 				completeFunctionCalls = true
@@ -119,6 +133,9 @@ if vim.g.lsp_setup_ready == nil then
 		},
 	})
 	lspconfig.solargraph.setup {
+		on_attach = function(client, bufnr)
+			require "lsp_signature".on_attach(signature_setup, bufnr) -- Note: add in lsp client on-attach
+		end,
 		flags = {
 			debounce_text_changes = 50,
 		},

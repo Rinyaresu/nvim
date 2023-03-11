@@ -116,6 +116,7 @@ lazy.setup({
 			}
 		end
 	},
+	{ 'otavioschwanck/cool-substitute.nvim' },
 
 	-- Utilities
 	{ 'moll/vim-bbye' },

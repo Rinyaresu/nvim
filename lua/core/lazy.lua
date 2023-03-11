@@ -84,6 +84,7 @@ lazy.setup({
 	{ 'lewis6991/gitsigns.nvim' },
 	{ 'tpope/vim-fugitive' },
 	{ 'sindrets/diffview.nvim',                     requires = 'nvim-lua/plenary.nvim' },
+	{ 'kdheepak/lazygit.nvim' },
 
 	-- Code manipulation
 	{ 'nvim-treesitter/nvim-treesitter' },

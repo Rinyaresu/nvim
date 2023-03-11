@@ -1,6 +1,7 @@
 require('plugins.lualine')
 require('plugins.treesitter')
 require('plugins.nvim-cmp')
+require('plugins.lsp')
 
 ---
 -- Colorscheme

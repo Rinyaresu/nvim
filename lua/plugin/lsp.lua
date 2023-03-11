@@ -167,32 +167,6 @@ if vim.g.lsp_setup_ready == nil then
         }
       })
     end,
-    ['ltex'] = function()
-      lspconfig.ltex.setup {
-        on_attach = function(client, bufnr)
-          -- your other on_attach functions.
-          require("ltex_extra").setup {
-            load_langs = { "pt-BR", "en-US" }, -- table <string> : languages for witch dictionaries will be loaded
-            init_check = true,                 -- boolean : whether to load dictionaries on startup
-            path = nil,                        -- string : path to store dictionaries. Relative path uses current working directory
-            log_level = "none",                -- string : "none", "trace", "debug", "info", "warn", "error", "fatal"
-          }
-        end,
-        settings = {
-          ltex = {
-            -- your settings.
-            enabled = { 'latex', 'tex', 'bib', 'markdown' },
-            diagnosticsDelay = 300,
-            language = 'en-US',
-            additionalRules = {
-              enablePickyRules = true,
-              motherTongue = 'pt-BR',
-              -- other rules
-            },
-          }
-        }
-      }
-    end
   })
 
   -- See :help lspconfig-setup
@@ -209,6 +183,27 @@ if vim.g.lsp_setup_ready == nil then
         diagnostics = true,
         formatting = true,
         completion = true,
+      }
+    }
+  }
+  lspconfig.ltex.setup {
+    capabilities = your_capabilities,
+    on_attach = function(client, bufnr)
+      -- your other on_attach functions.
+      require("ltex_extra").setup {
+        load_langs = { "pt-BR", "en-US" }, -- table <string> : languages for witch dictionaries will be loaded
+        init_check = true,                 -- boolean : whether to load dictionaries on startup
+        path = nil,                        -- string : path to store dictionaries. Relative path uses current working directory
+        log_level = "none",                -- string : "none", "trace", "debug", "info", "warn", "error", "fatal"
+      }
+    end,
+    settings = {
+      ltex = {
+        language = "pt-BR",
+        additionalRules = {
+          enablePickyRules = true,
+          motherTongue = "en-US",
+        },
       }
     }
   }

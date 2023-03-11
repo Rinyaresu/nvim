@@ -160,6 +160,7 @@ lazy.setup({
 			require("persistence").setup()
 		end,
 	},
+	{ 'christoomey/vim-tmux-navigator' },
 
 	-- LSP support
 	{ 'neovim/nvim-lspconfig' },

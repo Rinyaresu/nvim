@@ -118,6 +118,7 @@ lazy.setup({
 		end
 	},
 	{ 'otavioschwanck/cool-substitute.nvim' },
+	{ 'hrsh7th/cmp-emoji' },
 
 	-- Utilities
 	{ 'moll/vim-bbye' },

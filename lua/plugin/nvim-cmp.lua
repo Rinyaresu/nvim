@@ -20,6 +20,7 @@ cmp.setup({
 		{ name = 'nvim_lsp', keyword_length = 1 },
 		{ name = 'buffer',   keyword_length = 3 },
 		{ name = 'luasnip',  keyword_length = 2 },
+		{ name = 'emoji',    keyword_length = 2 },
 	},
 	window = {
 		documentation = cmp.config.window.bordered()
@@ -32,6 +33,7 @@ cmp.setup({
 				luasnip = '⋗',
 				buffer = 'Ω',
 				path = '🖫',
+				emoji = '😀',
 			}
 
 			item.menu = menu_icon[entry.source.name]

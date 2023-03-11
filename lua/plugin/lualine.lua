@@ -6,7 +6,7 @@ local lualine = require('lualine')
 -- Color table for highlights
 -- stylua: ignore
 local colors = {
-	bg       = '#16161e',
+	bg       = '#1a1b26',
 	fg       = '#c0caf5',
 	yellow   = '#e0af68',
 	cyan     = '#86e1fc',
@@ -39,6 +39,7 @@ local config = {
 		-- Disable sections and component separators
 		component_separators = '',
 		section_separators = '',
+		globalstatus = true,
 		theme = {
 			-- We are going to use lualine_c an lualine_x as left and
 			-- right section. Both are highlighted by c theme .  So we

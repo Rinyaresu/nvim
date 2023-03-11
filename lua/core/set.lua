@@ -16,7 +16,9 @@ vim.opt.breakindent = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 
-vim.opt.expandtab = false
+vim.opt.cursorline = true
+
+vim.opt.expandtab = true
 vim.opt.signcolumn = 'yes'
 
 vim.opt.smartindent = true

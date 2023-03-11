@@ -163,6 +163,9 @@ lazy.setup({
 	},
 	{ 'christoomey/vim-tmux-navigator' },
 
+	-- ltex
+	{ "barreiroleo/ltex-extra.nvim" },
+
 	-- LSP support
 	{ 'neovim/nvim-lspconfig' },
 	{ 'j-hui/fidget.nvim' },

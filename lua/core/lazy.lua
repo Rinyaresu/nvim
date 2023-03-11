@@ -1,5 +1,4 @@
 local lazy = {}
-
 function lazy.install(path)
 	if not vim.loop.fs_stat(path) then
 		print('Installing lazy.nvim....')
@@ -142,6 +141,15 @@ lazy.setup({
 	},
 	{ 'phaazon/mind.nvim',     branch = 'v2.2', requires = { 'nvim-lua/plenary.nvim' }, },
 	{ 'stevearc/dressing.nvim' },
+	{
+		"folke/which-key.nvim",
+		config = function()
+			vim.o.timeout = true
+			vim.o.timeoutlen = 300
+			require("which-key").setup({
+			})
+		end,
+	},
 
 	-- LSP support
 	{ 'neovim/nvim-lspconfig' },

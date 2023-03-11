@@ -4,6 +4,12 @@
 local lspconfig = require('lspconfig')
 local lsp_defaults = lspconfig.util.default_config
 
+lsp_defaults.capabilities = vim.tbl_deep_extend(
+	'force',
+	lsp_defaults.capabilities,
+	require('cmp_nvim_lsp').default_capabilities()
+)
+
 require('mason').setup({
 	ui = { border = 'rounded' }
 })
@@ -98,8 +104,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		bufmap('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
 		bufmap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>')
 		bufmap('n', 'fc', '<cmd>lua vim.lsp.buf.format({async = true})<cr>')
-		bufmap('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>')
-		bufmap('x', '<F4>', '<cmd>lua vim.lsp.buf.range_code_action()<cr>')
+		bufmap('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<cr>')
+		bufmap('x', 'ga', '<cmd>lua vim.lsp.buf.range_code_action()<cr>')
 		bufmap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
 		bufmap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
 		bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')

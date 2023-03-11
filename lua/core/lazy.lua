@@ -172,7 +172,7 @@ lazy.setup({
 	{ 'ray-x/lsp_signature.nvim' },
 	{ 'williamboman/mason.nvim' },
 	{ 'williamboman/mason-lspconfig.nvim' },
-
+  { 'jose-elias-alvarez/null-ls.nvim' },
 
 	-- Ruby
 	{ 'vim-ruby/vim-ruby' },

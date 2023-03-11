@@ -89,6 +89,7 @@ lazy.setup({
 	-- Code manipulation
 	{ 'nvim-treesitter/nvim-treesitter' },
 	{ 'nvim-treesitter/nvim-treesitter-textobjects' },
+	{ 'nvim-treesitter/nvim-treesitter-context' },
 	{ 'jxnblk/vim-mdx-js' },
 	{ 'numToStr/Comment.nvim' },
 	{ 'tpope/vim-surround' },
@@ -97,6 +98,25 @@ lazy.setup({
 	{ 'tpope/vim-endwise' },
 	{ 'lukas-reineke/indent-blankline.nvim' },
 	{ 'alvan/vim-closetag' },
+	{
+		'RRethy/vim-illuminate',
+		lazy = true,
+		enabled = true,
+		dependencies = {
+			'nvim-lua/plenary.nvim',
+		},
+		event = { 'CursorMoved', 'InsertLeave' },
+		config = function()
+			require 'illuminate'.configure {
+				filetypes_denylist = {
+					'neotree',
+					'neo-tree',
+					'Telescope',
+					'telescope',
+				}
+			}
+		end
+	},
 
 	-- Utilities
 	{ 'moll/vim-bbye' },

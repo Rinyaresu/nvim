@@ -30,7 +30,7 @@ lazy.setup({
   { 'joshdick/onedark.vim' },
   { 'tanvirtin/monokai.nvim' },
   { 'lunarvim/darkplus.nvim' },
-  { 'kyazdani42/nvim-web-devicons' },
+  { "nvim-tree/nvim-web-devicons" },
   { 'nvim-lualine/lualine.nvim' },
   { 'akinsho/bufferline.nvim' },
   { 'lukas-reineke/indent-blankline.nvim' },
@@ -161,6 +161,18 @@ lazy.setup({
   { 'williamboman/mason.nvim' },
   { 'williamboman/mason-lspconfig.nvim' },
   { 'jose-elias-alvarez/null-ls.nvim' },
+  {
+    "glepnir/lspsaga.nvim",
+    event = "BufRead",
+    config = function()
+      require("lspsaga").setup({})
+    end,
+    dependencies = {
+      { "nvim-tree/nvim-web-devicons" },
+      --Please make sure you install markdown and markdown_inline parser
+      { "nvim-treesitter/nvim-treesitter" }
+    }
+  },
 
   -- Ruby
   { 'vim-ruby/vim-ruby' },

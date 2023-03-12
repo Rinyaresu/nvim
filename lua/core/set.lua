@@ -1,37 +1,41 @@
 vim.g.mapleader = ' '
 
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.laststatus = 3
-vim.opt.mouse = 'a'
+local opt = vim.opt
 
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
+opt.number = true
+opt.relativenumber = true
+opt.laststatus = 3
+opt.mouse = 'a'
 
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
-vim.opt.wrap = false
-vim.opt.breakindent = true
+opt.ignorecase = true
+opt.smartcase = true
 
-vim.opt.autoindent = true
-vim.opt.expandtab = true
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
+opt.hlsearch = false
+opt.incsearch = true
+opt.wrap = false
+opt.breakindent = true
 
-vim.opt.cursorline = true
+opt.autoindent = true
+opt.expandtab = true
+opt.tabstop = 2
+opt.shiftwidth = 2
 
-vim.opt.signcolumn = 'yes'
+opt.cursorline = true
 
-vim.opt.smartindent = true
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = os.getenv('HOME') .. '/.vim/undodir'
-vim.opt.undofile = true
+opt.signcolumn = 'yes'
 
-vim.opt.updatetime = 50
+opt.smartindent = true
+opt.swapfile = false
+opt.backup = false
+opt.undodir = os.getenv('HOME') .. '/.vim/undodir'
+opt.undofile = true
 
-vim.opt.colorcolumn = '80'
+opt.updatetime = 50
 
-vim.opt.termguicolors = true
+opt.colorcolumn = '80'
 
-vim.opt.showmode = false
+opt.termguicolors = true
+
+opt.showmode = false
+
+opt.clipboard = "unnamedplus"

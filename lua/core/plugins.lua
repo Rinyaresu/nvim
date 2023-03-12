@@ -2,8 +2,6 @@ require('plugin.lualine')
 require('plugin.treesitter')
 require('plugin.nvim-cmp')
 require('plugin.lsp')
-require('plugin.chatgpt')
-
 
 ---
 -- Colorscheme

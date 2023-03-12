@@ -4,6 +4,13 @@ require('plugin.nvim-cmp')
 require('plugin.lsp')
 
 ---
+-- LSP lines
+---
+
+require("lsp_lines").setup({})
+
+
+---
 -- Colorscheme
 ---
 vim.cmd.colorscheme('tokyonight-night')

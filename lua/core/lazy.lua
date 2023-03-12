@@ -181,6 +181,7 @@ lazy.setup({
       { "nvim-treesitter/nvim-treesitter" }
     }
   },
+  { "https://git.sr.ht/~whynothugo/lsp_lines.nvim" },
 
   -- Ruby
   { 'vim-ruby/vim-ruby' },

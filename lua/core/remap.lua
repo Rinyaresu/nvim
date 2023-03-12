@@ -78,7 +78,7 @@ keymap("n", "<Leader>rc", ":lua require('ror.commands').list_commands()<CR>", { 
 keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>")
 
 -- Code action
-keymap({ "n", "v" }, "ga", "<cmd>Lspsaga code_action<CR>")
+keymap({ "n", "v" }, "<leader>ga", "<cmd>Lspsaga code_action<CR>")
 
 -- Rename all occurrences of the hovered word for the entire file
 keymap("n", "gr", "<cmd>Lspsaga rename<CR>")

@@ -167,6 +167,13 @@ if vim.g.lsp_setup_ready == nil then
           return utils.root_has_file(".eslintrc.js") -- change file extension if you use something else
         end,
       }),
+      null_ls.builtins.diagnostics.markdownlint,
+      null_ls.builtins.diagnostics.shellcheck,
+      null_ls.builtins.diagnostics.yamllint,
+      null_ls.builtins.diagnostics.erb_lint,
+      null_ls.builtins.formatting.sqlformat,
+      null_ls.builtins.diagnostics.commitlint,
+      null_ls.builtins.diagnostics.haml_lint,
     }
   })
 

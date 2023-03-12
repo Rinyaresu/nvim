@@ -61,5 +61,8 @@ require('nvim-treesitter.configs').setup({
     'elixir',
     'sql',
     'scss',
+    'markdown',
+    'markdown_inline',
+    'regex',
   },
 })

@@ -32,6 +32,7 @@
   "mind.nvim": { "branch": "v2.2", "commit": "79e0ca131d5e37dfa65f3f0e725d99742e4ff783" },
   "monokai.nvim": { "branch": "master", "commit": "b8bd44d5796503173627d7a1fc51f77ec3a08a63" },
   "neo-tree.nvim": { "branch": "v2.x", "commit": "aec592bb1f0cf67f7e1123053d1eb17700aa9ed4" },
+  "noice.nvim": { "branch": "main", "commit": "e2a04d480a9fba6b698c01998582ea17aa213ba3" },
   "nui.nvim": { "branch": "main", "commit": "0dc148c6ec06577fcf06cbab3b7dac96d48ba6be" },
   "null-ls.nvim": { "branch": "main", "commit": "e172e1e3011e3d032dbeba6414644ba968570828" },
   "nvim-autopairs": { "branch": "master", "commit": "e755f366721bc9e189ddecd39554559045ac0a18" },

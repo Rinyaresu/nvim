@@ -215,10 +215,10 @@ if vim.g.lsp_setup_ready == nil then
     end,
     settings = {
       ltex = {
-        language = "pt-BR",
+        language = "en-US",
         additionalRules = {
           enablePickyRules = true,
-          motherTongue = "en-US",
+          motherTongue = "pt-BR",
         },
       }
     }

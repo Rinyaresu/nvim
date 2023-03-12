@@ -8,19 +8,6 @@ if not setup then
   return
 end
 
-null_ls.setup({
-  sources = {
-    null_ls.builtins.formatting.prettier,
-    null_ls.builtins.diagnostics.eslint.with({
-      condition = function(utils)
-        return utils.root_has_file(".eslintrc.js") -- change file extension if you use something else
-      end,
-    }),
-    null_ls.builtins.diagnostics.markdownlint,
-
-  }
-})
-
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local on_attach = function(client, bufnr)
   if client.supports_method "textDocument/formatting" then
@@ -41,24 +28,6 @@ local on_attach = function(client, bufnr)
     })
   end
 end
-
-require('mason').setup({
-  ui = { border = 'rounded' }
-})
-
--- See :help mason-lspconfig-settings
-require('mason-lspconfig').setup({
-  ensure_installed = {
-    'tsserver',
-    'eslint',
-    'html',
-    'cssls',
-    'tailwindcss',
-    'marksman',
-    'jsonls',
-    'lua_ls',
-  }
-})
 
 require "lsp_signature".setup({
   bind = true, -- This is mandatory, otherwise border config won't get registered.
@@ -149,6 +118,27 @@ vim.api.nvim_create_autocmd('LspAttach', {
 -- LSP servers
 ---
 
+
+require('mason').setup({
+  ui = { border = 'rounded' }
+})
+
+-- See :help mason-lspconfig-settings
+require('mason-lspconfig').setup({
+  ensure_installed = {
+    'tsserver',
+    'eslint',
+    'html',
+    'cssls',
+    'tailwindcss',
+    'marksman',
+    'jsonls',
+    'lua_ls',
+    'vimls',
+    'bashls',
+  }
+})
+
 -- Prevent multiple instance of lsp servers
 -- if file is sourced again
 if vim.g.lsp_setup_ready == nil then
@@ -167,6 +157,32 @@ if vim.g.lsp_setup_ready == nil then
         }
       })
     end,
+  })
+
+  null_ls.setup({
+    sources = {
+      null_ls.builtins.formatting.prettier,
+      null_ls.builtins.diagnostics.eslint.with({
+        condition = function(utils)
+          return utils.root_has_file(".eslintrc.js") -- change file extension if you use something else
+        end,
+      }),
+    }
+  })
+
+  require("mason-null-ls").setup({
+    ensure_installed = {
+      'prettier',
+      'markdownlint',
+      'shellcheck',
+      'yamllint',
+      'erb_lint',
+      'sql-formatter',
+      'commitlint',
+      'haml-lint'
+    },
+    automatic_installation = false,
+    automatic_setup = true, -- Recommended, but optional
   })
 
   -- See :help lspconfig-setup

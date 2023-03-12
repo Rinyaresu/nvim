@@ -8,6 +8,7 @@ vim.keymap.set('n', '<leader>a', ':keepjumps normal! ggVG<cr>')
 -- Basic clipboard interaction
 vim.keymap.set({ 'n', 'x' }, 'y', '"+y')
 vim.keymap.set({ 'n', 'x' }, 'p', '"+p')
+vim.keymap.set({ 'n', 'x' }, '<leader>fy', '<cmd>:call CopyFullPath()<CR>')
 
 -- Delete text
 vim.keymap.set({ 'n', 'x' }, 'x', '"_x')

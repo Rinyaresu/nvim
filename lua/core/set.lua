@@ -13,12 +13,13 @@ vim.opt.incsearch = true
 vim.opt.wrap = false
 vim.opt.breakindent = true
 
+vim.opt.autoindent = true
+vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 
 vim.opt.cursorline = true
 
-vim.opt.expandtab = true
 vim.opt.signcolumn = 'yes'
 
 vim.opt.smartindent = true

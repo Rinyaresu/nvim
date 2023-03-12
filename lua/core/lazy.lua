@@ -176,6 +176,7 @@ lazy.setup({
 
 	-- Ruby
 	{ 'vim-ruby/vim-ruby' },
+  { 'weizheheng/ror.nvim' },
 
 	-- Autocomplete
 	{ 'hrsh7th/nvim-cmp' },

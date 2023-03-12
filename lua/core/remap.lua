@@ -64,3 +64,6 @@ vim.keymap.set('n', '<leader>gg', '<cmd>:LazyGit<CR>')
 vim.keymap.set('n', '<leader>gd', '<cmd>:DiffviewOpen<CR>')
 vim.keymap.set('n', '<leader>gl', '<cmd>:DiffviewFileHistory<CR>')
 vim.keymap.set('n', '<leader>gc', '<cmd>:DiffviewClose<CR>')
+
+-- Ruby
+vim.keymap.set("n", "<Leader>rc", ":lua require('ror.commands').list_commands()<CR>", { silent = true })

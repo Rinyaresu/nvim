@@ -165,6 +165,9 @@ lazy.setup({
   -- ltex
   { "barreiroleo/ltex-extra.nvim" },
 
+  -- neorg
+  { "nvim-neorg/neorg",                 build = ":Neorg sync-parsers", },
+
   -- LSP support
   { 'neovim/nvim-lspconfig' },
   { 'j-hui/fidget.nvim' },

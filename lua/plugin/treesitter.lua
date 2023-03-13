@@ -64,5 +64,6 @@ require('nvim-treesitter.configs').setup({
     'markdown',
     'markdown_inline',
     'regex',
+    'norg',
   },
 })

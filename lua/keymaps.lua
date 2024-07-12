@@ -4,10 +4,15 @@ vim.keymap.set('n', '<leader>oqq', vim.diagnostic.setloclist, { desc = 'Open dia
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- Suckless
+vim.keymap.set('n', 'j', 'gj')
+vim.keymap.set('n', 'k', 'gk')
+
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+vim.keymap.set('n', '>>', '<C-w>>')
+vim.keymap.set('n', '<<', '<C-w><')
 vim.keymap.set('n', '<leader>a', '<Cmd>keepjumps normal! ggVG<CR>')
 vim.keymap.set('n', '<leader>y', function()
   require('helpers').copy_path()
@@ -23,6 +28,10 @@ vim.keymap.set('n', '<A-q>', '<Cmd>bd<CR>')
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
+vim.keymap.set('n', '<leader>rw', function()
+  require('helpers').find_and_replace()
+end)
+
 -- Macros
 vim.keymap.set('n', '<leader>qf', "<Cmd>cdo execute 'norm! @q' | update<CR>")
 
@@ -30,4 +39,7 @@ vim.keymap.set('v', 'gM', [[y<cmd>let @/=substitute(escape(@", '/'), '\n', '\\n'
 vim.keymap.set('n', 'M', '<Cmd>norm! gn@q<CR>')
 
 vim.keymap.set('n', '<leader>oq', '<Cmd>copen<CR>')
+vim.keymap.set('n', '<leader>rq', function()
+  require('helpers').replace_in_quickfix()
+end)
 -- vim: ts=2 sts=2 sw=2 et

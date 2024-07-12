@@ -37,10 +37,8 @@ vim.opt.swapfile = false
 
 vim.opt.colorcolumn = '120'
 
-vim.opt.wrap = false
+vim.opt.wrap = true
 
 vim.opt.termguicolors = true
 
 vim.g.editorconfig = true
-
--- vim: ts=2 sts=2 sw=2 et

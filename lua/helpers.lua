@@ -51,4 +51,24 @@ function M.find_in_folder(folder, title)
   end
 end
 
+function M.replace_in_quickfix()
+  local query = vim.fn.input 'Enter search string: '
+  if query == '' then
+    print 'Search string cannot be empty.'
+    return
+  end
+  local replacement = vim.fn.input 'Enter replacement string: '
+  vim.cmd(string.format('cdo s/%s/%s/gc', query, replacement))
+end
+
+function M.find_and_replace()
+  local search = vim.fn.input 'Find: '
+  if search == '' then
+    print 'Search string cannot be empty.'
+    return
+  end
+  local replace = vim.fn.input 'Replace: '
+  vim.cmd('%s/' .. search .. '/' .. replace .. '/g')
+end
+
 return M

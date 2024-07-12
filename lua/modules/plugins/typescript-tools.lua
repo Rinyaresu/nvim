@@ -1,12 +1,10 @@
-vim.tbl_add_reverse_lookup = function(tbl)
-  for k, v in pairs(tbl) do
-    tbl[v] = k
-  end
-end
-
 return {
   {
     'pmizio/typescript-tools.nvim',
+    event = {
+      'BufRead *.js,*.jsx,*.mjs,*.cjs,*ts,*tsx',
+      'BufNewFile *.js,*.jsx,*.mjs,*.cjs,*ts,*tsx',
+    },
     dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
     opts = {
       settings = {

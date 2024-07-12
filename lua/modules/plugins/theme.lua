@@ -11,8 +11,23 @@ return {
             base = '#181818',
             mantle = '#181818',
             crust = '#181818',
-            text = '#E6E6FF',
+            text = '#FFFFFF',
           },
+        },
+
+        styles = {
+          comments = { 'italic' },
+          functions = { 'bold' },
+          keywords = { 'italic' },
+          operators = { 'bold' },
+          conditionals = { 'bold' },
+          loops = { 'bold' },
+          booleans = { 'bold', 'italic' },
+          numbers = {},
+          types = {},
+          strings = {},
+          variables = {},
+          properties = {},
         },
 
         integrations = {
@@ -32,6 +47,7 @@ return {
               information = { 'underline' },
             },
           },
+
           telescope = { enabled = true, style = 'nvchad' },
         },
       }

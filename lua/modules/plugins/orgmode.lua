@@ -5,6 +5,7 @@ return {
     dependencies = {
       {
         'akinsho/org-bullets.nvim',
+        event = { 'BufRead *.org', 'BufNewFile *.org' },
         config = function()
           ---@diagnostic disable-next-line: missing-fields
           require('org-bullets').setup {}

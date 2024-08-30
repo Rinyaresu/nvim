@@ -24,6 +24,9 @@ return {
       vim.keymap.set('n', '<C-A-l>', function()
         harpoon:list():select(4)
       end)
+      vim.keymap.set('n', '<C-A-p>', function()
+        harpoon:list():select(5)
+      end)
     end,
   },
 }

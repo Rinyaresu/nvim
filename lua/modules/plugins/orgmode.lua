@@ -45,6 +45,12 @@ return {
             headline = 'General Tasks',
             target = '~/personal/notes/org/todos.org',
           },
+          m = {
+            description = 'Maybe Do',
+            template = '* %?\n:Created: %U\n',
+            headline = 'Maybe Do',
+            target = '~/personal/notes/org/maybe.org',
+          },
           w = {
             description = 'Work Log',
             template = '* %?',
@@ -52,6 +58,18 @@ return {
             datetree = {
               tree_type = 'day',
             },
+          },
+          W = {
+            description = 'Work To-Do',
+            template = '* TODO [#B] %? :trabalho:umanni:\n:Created: %U\n',
+            headline = 'Working',
+            target = '~/personal/notes/org/work-todo.org',
+          },
+          d = {
+            description = 'Dump Log',
+            template = '** %^{Title}\n :Created: %U\n [[%^{Link}]]\n',
+            target = '~/personal/notes/org/dump.org',
+            headline = 'Dump Log',
           },
         },
       }

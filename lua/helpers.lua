@@ -44,7 +44,7 @@ end
 function M.find_in_folder(folder, title)
   return function()
     if vim.fn.isdirectory(folder) == 1 then
-      vim.cmd("lua require'telescope.builtin'.find_files({ cwd = '" .. folder .. "', prompt_title = '" .. title .. "' })")
+      vim.cmd("lua require'fzf-lua'.files({ cwd = '" .. folder .. "', prompt_title = '" .. title .. "' })")
     else
       print("Directory: '" .. folder .. "' not found in this project...")
     end

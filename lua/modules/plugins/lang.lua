@@ -2,6 +2,12 @@ local ff = require('helpers').find_in_folder
 
 return {
   {
+    vim.filetype.add {
+      extension = {
+        coffee = 'javascript',
+      },
+    },
+
     vim.keymap.set('n', '<leader>rc', function()
       ff('app/controllers', 'Find controller')()
     end),

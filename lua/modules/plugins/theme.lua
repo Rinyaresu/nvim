@@ -13,6 +13,12 @@ return {
             crust = '#181818',
             text = '#FFFFFF',
           },
+          latte = {
+            base = '#f8f8f7',
+            text = '#654735',
+            mantle = '#F5F5F0',
+            crust = '#F5F5F0',
+          },
         },
 
         styles = {
@@ -52,7 +58,7 @@ return {
         },
       }
 
-      vim.cmd.colorscheme 'catppuccin-mocha'
+      vim.cmd.colorscheme 'catppuccin-latte'
       vim.cmd.hi 'Comment gui=none'
     end,
   },

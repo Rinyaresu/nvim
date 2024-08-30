@@ -22,7 +22,6 @@ return {
         sources = {
           { name = 'buffer' },
           { name = 'nvim_lsp' },
-          { name = 'copilot' },
           { name = 'path' },
         },
       }
@@ -31,7 +30,6 @@ return {
         sources = {
           { name = 'orgmode' },
           { name = 'buffer' },
-          { name = 'copilot' },
         },
       })
     end,

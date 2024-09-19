@@ -38,9 +38,7 @@ return {
         },
       }
 
-      require('mini.indentscope').setup {
-        symbol = '│',
-      }
+      require('mini.indentscope').setup {}
     end,
   },
 }

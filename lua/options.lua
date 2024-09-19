@@ -42,3 +42,7 @@ vim.opt.wrap = true
 vim.opt.termguicolors = true
 
 vim.g.editorconfig = true
+
+vim.opt.conceallevel = 2
+vim.opt.concealcursor = 'nc'
+vim.opt.laststatus = 3

@@ -12,6 +12,24 @@ return {
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
         callback = function(event)
+          vim.cmd [[
+            highlight! DiagnosticLineError guibg=#F4E2E5 guisp=NONE
+            highlight! DiagnosticLineWarn guibg=#F6EEE2 guisp=NONE
+            highlight! DiagnosticLineInfo guibg=#E1F0F5 guisp=NONE
+            highlight! DiagnosticLineHint guibg=#E3EEEE guisp=NONE
+          ]]
+
+          vim.diagnostic.config {
+            signs = {
+              linehl = {
+                [vim.diagnostic.severity.ERROR] = 'DiagnosticLineError',
+                [vim.diagnostic.severity.WARN] = 'DiagnosticLineWarn',
+                [vim.diagnostic.severity.INFO] = 'DiagnosticLineInfo',
+                [vim.diagnostic.severity.HINT] = 'DiagnosticLineHint',
+              },
+            },
+          }
+
           local map = function(keys, func, desc)
             vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end

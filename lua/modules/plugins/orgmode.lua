@@ -67,7 +67,7 @@ return {
           },
           d = {
             description = 'Dump Log',
-            template = '** DONE %^{Title}\n :Created: %U\n [[%^{Link}]]\n',
+            template = '** DONE %^{Title}\n CLOSED: %U\n :Created: %U\n  [[%^{Link}]]\n',
             target = '~/personal/notes/org/dump.org',
             headline = 'Dump Log',
           },

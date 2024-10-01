@@ -33,25 +33,25 @@ return {
           if filename == '' then
             filename = '[No Name]'
           end
-          local ft_icon, ft_color = devicons.get_icon_color(filename)
+          -- local ft_icon, ft_color = devicons.get_icon_color(filename)
 
-          local function get_git_diff()
-            local icons = { removed = ' ', changed = ' ', added = ' ' }
-            local signs = vim.b[props.buf].gitsigns_status_dict
-            local labels = {}
-            if signs == nil then
-              return labels
-            end
-            for name, icon in pairs(icons) do
-              if tonumber(signs[name]) and signs[name] > 0 then
-                table.insert(labels, { icon .. signs[name] .. ' ', group = 'Diff' .. name })
-              end
-            end
-            if #labels > 0 then
-              table.insert(labels, { '| ' })
-            end
-            return labels
-          end
+          -- local function get_git_diff()
+          --   local icons = { removed = ' ', changed = ' ', added = ' ' }
+          --   local signs = vim.b[props.buf].gitsigns_status_dict
+          --   local labels = {}
+          --   if signs == nil then
+          --     return labels
+          --   end
+          --   for name, icon in pairs(icons) do
+          --     if tonumber(signs[name]) and signs[name] > 0 then
+          --       table.insert(labels, { icon .. signs[name] .. ' ', group = 'Diff' .. name })
+          --     end
+          --   end
+          --   if #labels > 0 then
+          --     table.insert(labels, { '| ' })
+          --   end
+          --   return labels
+          -- end
 
           local function get_diagnostic_label()
             local icons = { error = ' ', warn = ' ', info = '  ', hint = ' ' }
@@ -87,15 +87,33 @@ return {
             return label
           end
 
-          local function get_file_name()
-            local label = {}
-            table.insert(label, { (ft_icon or '') .. ' ', guifg = ft_color, guibg = 'none' })
-            table.insert(label, { vim.bo[props.buf].modified and ' ' or '', guifg = colors.yellow })
-            table.insert(label, { filename, gui = vim.bo[props.buf].modified and 'bold,italic' or 'bold' })
-            if not props.focused then
-              label['group'] = 'BufferInactive'
+          -- local function get_file_name()
+          --   local label = {}
+          --   table.insert(label, { (ft_icon or '') .. ' ', guifg = ft_color, guibg = 'none' })
+          --   table.insert(label, { vim.bo[props.buf].modified and ' ' or '', guifg = colors.yellow })
+          --   table.insert(label, { filename, gui = vim.bo[props.buf].modified and 'bold,italic' or 'bold' })
+          --   if not props.focused then
+          --     label['group'] = 'BufferInactive'
+          --   end
+          --   return label
+          -- end
+
+          local function get_git_branch_name()
+            local git_dir = vim.fn.finddir('.git', '.;')
+            if git_dir ~= '' then
+              local head_file = io.open(git_dir .. '/HEAD', 'r')
+              if head_file then
+                local content = head_file:read '*all'
+                head_file:close()
+
+                local branch = content:match 'ref: refs/heads/(.-)%s*$' or content:sub(1, 7) or ''
+                if branch ~= '' then
+                  return { { ' ', guifg = colors.red }, { branch, guifg = colors.red } }
+                end
+              end
+              return ''
             end
-            return label
+            return ''
           end
 
           return {
@@ -104,7 +122,8 @@ return {
               { get_diagnostic_label() },
               -- { get_git_diff() },
               { get_harpoon_items() },
-              { get_file_name() },
+              -- { get_file_name() },
+              { get_git_branch_name() },
               guibg = colors.background,
               guifg = colors.foreground,
             },

@@ -13,11 +13,16 @@ return {
             },
           },
         },
+
         winopts = {
-          fullscreen = true,
+          split = 'belowright new',
+          -- fullscreen = true,
           relativenumber = true,
+          foldenable = true,
           preview = {
             default = 'bat',
+            wrap = 'wrap',
+            horizontal = 'right:50%',
           },
         },
         grep = {

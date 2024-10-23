@@ -41,13 +41,13 @@ return {
         org_capture_templates = {
           t = {
             description = 'General To-Do',
-            template = '* TODO [#B] %?\n:Created: %U\n',
+            template = '* TODO [#B] %?\n  :Created: %U\n',
             headline = 'General Tasks',
             target = '~/personal/notes/org/todos.org',
           },
           m = {
             description = 'Maybe Do',
-            template = '* %?\n:Created: %U\n',
+            template = '* %?\n  :Created: %U\n',
             headline = 'Maybe Do',
             target = '~/personal/notes/org/maybe.org',
           },
@@ -67,7 +67,7 @@ return {
           },
           d = {
             description = 'Dump Log',
-            template = '** DONE %^{Title}\n CLOSED: %U\n :Created: %U\n  [[%^{Link}]]\n',
+            template = '** DONE %^{Title}\n  CLOSED: %U\n  :Created: %U\n  [[%^{Link}]]\n',
             target = '~/personal/notes/org/dump.org',
             headline = 'Dump Log',
           },

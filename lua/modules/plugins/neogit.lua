@@ -21,7 +21,7 @@ return {
         },
       }
 
-      vim.keymap.set('n', '<leader>g', '<cmd>Neogit<CR>')
+      vim.keymap.set('n', '<leader>g', '<cmd>Neogit kind=replace<CR>')
       vim.api.nvim_create_autocmd('BufWinEnter', {
         pattern = 'Neogit*',
         callback = function()

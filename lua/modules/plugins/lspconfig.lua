@@ -1,10 +1,12 @@
 return {
   {
     'neovim/nvim-lspconfig',
+    event = 'BufReadPre',
     dependencies = {
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
+      'mfussenegger/nvim-lint',
 
       { 'folke/neodev.nvim', opts = {} },
     },
@@ -98,6 +100,16 @@ return {
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+
+      require('lint').linters_by_ft = {
+        markdown = { 'markdownlint-cli2' },
+      }
+
+      vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
+        callback = function()
+          require('lint').try_lint()
+        end,
+      })
 
       local servers = {
         lua_ls = {

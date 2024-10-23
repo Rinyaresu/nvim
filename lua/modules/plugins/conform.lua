@@ -5,19 +5,21 @@ return {
       require('conform').setup {
         notify_on_error = true,
         log_level = vim.log.levels.ERROR,
+
         format_on_save = function(bufnr)
           if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
             return
           end
           return { timeout_ms = 5000, lsp_fallback = true }
         end,
+
         formatters_by_ft = {
           lua = { 'stylua' },
           ruby = { 'rubocop' },
-          javascript = { { 'prettier', 'eslint' } },
-          javascriptreact = { { 'prettier', 'eslint' } },
+          javascript = { 'prettier', 'eslint' },
+          javascriptreact = { 'prettier', 'eslint' },
           eruby = { 'htmlbeautifier' },
-          markdown = { 'markdownlint' },
+          markdown = { 'markdownlint-cli2' },
         },
       }
     end,

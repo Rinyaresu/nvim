@@ -1,7 +1,6 @@
 return {
   {
     'MeanderingProgrammer/render-markdown.nvim',
-    event = { 'BufEnter' },
     opts = {
       code = {
         sign = false,

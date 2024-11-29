@@ -1,65 +1,23 @@
 return {
   {
-    'catppuccin/nvim',
-    name = 'catppuccin',
+    'rebelot/kanagawa.nvim',
     lazy = false,
     priority = 1000,
-    init = function()
-      require('catppuccin').setup {
-        color_overrides = {
-          mocha = {
-            base = '#181818',
-            mantle = '#181818',
-            crust = '#181818',
-            text = '#FFFFFF',
-          },
-          latte = {
-            base = '#f8f8f7',
-            text = '#654735',
-            mantle = '#F5F5F0',
-            crust = '#F5F5F0',
-          },
-        },
-
-        styles = {
-          comments = { 'italic' },
-          functions = { 'bold' },
-          keywords = { 'italic' },
-          operators = { 'bold' },
-          conditionals = { 'bold' },
-          loops = { 'bold' },
-          booleans = { 'bold', 'italic' },
-          numbers = {},
-          types = {},
-          strings = {},
-          variables = {},
-          properties = {},
-        },
-
-        integrations = {
-          treesitter = true,
-          native_lsp = {
-            enabled = true,
-            virtual_text = {
-              errors = { 'italic' },
-              hints = { 'italic' },
-              warnings = { 'italic' },
-              information = { 'italic' },
-            },
-            underlines = {
-              errors = { 'underline' },
-              hints = { 'underline' },
-              warnings = { 'underline' },
-              information = { 'underline' },
-            },
-          },
-
-          telescope = { enabled = true, style = 'nvchad' },
-        },
+    config = function()
+      require('kanagawa').setup {
+        undercurl = true, -- enable undercurls
+        commentStyle = { italic = true },
+        functionStyle = {},
+        keywordStyle = { italic = true },
+        statementStyle = { bold = true },
+        typeStyle = {},
+        transparent = false, -- do not set background color
+        dimInactive = false, -- dim inactive window `:h hl-NormalNC`
+        terminalColors = true, -- define vim.g.terminal_color_{0,17}
       }
 
-      vim.cmd.colorscheme 'catppuccin-latte'
-      vim.cmd.hi 'Comment gui=none'
+      vim.opt.background = 'dark'
+      vim.cmd 'colorscheme kanagawa-dragon'
     end,
   },
 }

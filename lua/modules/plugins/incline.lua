@@ -6,19 +6,19 @@ return {
     },
     config = function()
       local colors = {
-        background = '#F8F8F7',
-        foreground = '#654735',
-        cursor = '#DC8A78',
-        black = '#5C5F77',
-        red = '#D20F39',
-        green = '#40A02B',
-        yellow = '#DF8E1D',
-        blue = '#1E66F5',
-        magenta = '#EA76CB',
-        cyan = '#179299',
-        white = '#ACB0BE',
-        bright_black = '#6C6F85',
-        bright_white = '#BCC0CC',
+        background = '#1F1F28',
+        foreground = '#DCD7BA',
+        cursor = '#E46876',
+        black = '#16161D',
+        red = '#E82424',
+        green = '#76946A',
+        yellow = '#DCA561',
+        blue = '#7E9CD8',
+        magenta = '#957FB8',
+        cyan = '#7AA89F',
+        white = '#C8C093',
+        bright_black = '#54546D',
+        bright_white = '#C5C9C5',
       }
 
       require('incline').setup {
@@ -66,14 +66,14 @@ return {
           end
 
           return {
-            { '', guifg = colors.background },
+            { '', guibg = colors.background, guifg = colors.background },
             {
               { get_diagnostic_label() },
               { get_git_branch_name() },
               guibg = colors.background,
-              guifg = colors.foreground,
+              guifg = colors.black,
             },
-            { '', guifg = colors.background },
+            { '', guibg = colors.background, guifg = colors.background },
           }
         end,
       }

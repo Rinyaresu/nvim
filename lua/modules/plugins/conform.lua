@@ -2,6 +2,8 @@ return {
   {
     'stevearc/conform.nvim',
     config = function()
+      local sql_formatter_config_file = os.getenv 'HOME' .. '/.config/sql_formatter/sql_formatter.json'
+
       require('conform').setup {
         notify_on_error = true,
         log_level = vim.log.levels.ERROR,
@@ -13,6 +15,17 @@ return {
           return { timeout_ms = 5000, lsp_fallback = true }
         end,
 
+        formatters = {
+          sql_formatter = {
+            args = {
+              '-l',
+              'plsql',
+              '--config',
+              sql_formatter_config_file,
+            },
+          },
+        },
+
         formatters_by_ft = {
           lua = { 'stylua' },
           ruby = { 'rubocop' },
@@ -20,6 +33,7 @@ return {
           javascriptreact = { 'prettier', 'eslint' },
           eruby = { 'htmlbeautifier' },
           markdown = { 'markdownlint-cli2' },
+          -- sql = { 'sql_formatter', 'sqlfluff' },
         },
       }
     end,
@@ -46,6 +60,7 @@ return {
       desc = 'Disable autoformat-on-save',
       bang = true,
     }),
+
     vim.api.nvim_create_user_command('FormatEnable', function()
       vim.b.disable_autoformat = false
       vim.g.disable_autoformat = false
@@ -54,6 +69,6 @@ return {
     }),
   },
 
-  vim.keymap.set('n', '<leader>F', '<Cmd>Format<CR>'),
+  vim.keymap.set('x', '<leader>F', '<Cmd>Format<CR>'),
 }
 -- vim: ts=2 sts=2 sw=2 et

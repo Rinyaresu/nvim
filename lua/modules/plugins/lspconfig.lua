@@ -15,10 +15,14 @@ return {
         group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
         callback = function(event)
           vim.cmd [[
-            highlight! DiagnosticLineError guibg=#F4E2E5 guisp=NONE
-            highlight! DiagnosticLineWarn guibg=#F6EEE2 guisp=NONE
-            highlight! DiagnosticLineInfo guibg=#E1F0F5 guisp=NONE
-            highlight! DiagnosticLineHint guibg=#E3EEEE guisp=NONE
+            highlight! DiagnosticVirtualTextError guifg=#DCD7BA gui=italic
+            highlight! DiagnosticVirtualTextWarn  guifg=#DCD7BA gui=italic
+            highlight! DiagnosticVirtualTextInfo  guifg=#DCD7BA gui=italic
+            highlight! DiagnosticVirtualTextHint  guifg=#DCD7BA gui=italic
+            highlight! DiagnosticLineError guibg=#43242B
+            highlight! DiagnosticLineWarn guibg=#49443C
+            highlight! DiagnosticLineInfo guibg=#2D4F67
+            highlight! DiagnosticLineHint guibg=#54546D
           ]]
 
           vim.diagnostic.config {
@@ -90,16 +94,18 @@ return {
             end,
           })
 
-          if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
-            map('<leader>th', function()
-              vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-            end, '[T]oggle Inlay [H]ints')
+          if client and client.server_capabilities.inlayHintProvider then
+            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
           end
         end,
       })
 
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+      local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+      capabilities.textDocument.completion.completionItem.snippetSupport = true
+      capabilities.textDocument.foldingRange = {
+        dynamicRegistration = false,
+        lineFoldingOnly = true,
+      }
 
       require('lint').linters_by_ft = {
         markdown = { 'markdownlint-cli2' },
@@ -126,17 +132,44 @@ return {
       -- Configure the solargraph LSP outside of mason
       -- This is because solargraph doesn't work well with mason
       require('lspconfig').solargraph.setup {
+        capabilities,
+        filetypes = { 'ruby', 'eruby' },
         settings = {
           flags = {
             debounce_text_changes = 150,
           },
           solargraph = {
             useBundler = true,
-            diagnostics = true,
-            formatting = false,
+            diagnostic = true,
             completion = true,
+            hover = true,
+            formatting = false,
+            symbols = true,
+            definitions = true,
+            rename = true,
+            references = true,
+            folding = true,
           },
         },
+      }
+
+      require('lspconfig').ts_ls.setup {
+        init_options = {
+          preferences = {
+            includeInlayParameterNameHints = 'all',
+            includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+            includeInlayFunctionParameterTypeHints = true,
+            includeInlayVariableTypeHints = true,
+            includeInlayPropertyDeclarationTypeHints = true,
+            includeInlayFunctionLikeReturnTypeHints = true,
+            includeInlayEnumMemberValueHints = true,
+            importModuleSpecifierPreference = 'non-relative',
+          },
+        },
+        on_attach = function(client)
+          client.server_capabilities.document_formatting = false
+          client.server_capabilities.document_range_formatting = false
+        end,
       }
 
       require('mason').setup()
@@ -150,6 +183,7 @@ return {
         'cssls',
         'prettier',
         'marksman',
+        'ts_ls',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

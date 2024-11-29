@@ -2,6 +2,7 @@ return {
   {
     'lewis6991/gitsigns.nvim',
     opts = {
+      attach_to_untracked = false,
       signs = {
         add = { text = '+' },
         change = { text = '~' },

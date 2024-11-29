@@ -30,7 +30,7 @@ return {
         },
         previewers = {
           git_diff = {
-            pager = 'delta --line-numbers --light',
+            pager = 'delta --line-numbers --dark',
           },
         },
       }

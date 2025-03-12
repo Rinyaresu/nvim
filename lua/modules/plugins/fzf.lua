@@ -13,26 +13,6 @@ return {
             },
           },
         },
-
-        winopts = {
-          split = 'belowright new',
-          -- fullscreen = true,
-          relativenumber = true,
-          foldenable = true,
-          preview = {
-            default = 'bat',
-            wrap = 'wrap',
-            horizontal = 'right:50%',
-          },
-        },
-        grep = {
-          rg_glob = true,
-        },
-        previewers = {
-          git_diff = {
-            pager = 'delta --line-numbers --dark',
-          },
-        },
       }
 
       require('fzf-lua').register_ui_select()

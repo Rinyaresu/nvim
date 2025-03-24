@@ -1,0 +1,53 @@
+local conf = require 'modules.ui.config'
+
+packadd {
+
+  'rebelot/kanagawa.nvim',
+  lazy = false,
+  priority = 1000,
+  config = conf.kanagawa,
+}
+
+packadd {
+  'folke/todo-comments.nvim',
+  event = 'VimEnter',
+  dependencies = { 'nvim-lua/plenary.nvim' },
+  opts = { signs = false },
+}
+
+packadd {
+  'MeanderingProgrammer/render-markdown.nvim',
+  opts = {
+    code = {
+      sign = false,
+      width = 'block',
+      right_pad = 1,
+    },
+    heading = {
+      sign = false,
+      icons = {},
+    },
+  },
+}
+
+packadd {
+  'lewis6991/gitsigns.nvim',
+  opts = {
+    attach_to_untracked = false,
+    signs = {
+      add = { text = '+' },
+      change = { text = '~' },
+      delete = { text = '_' },
+      topdelete = { text = '‾' },
+      changedelete = { text = '~' },
+    },
+  },
+}
+
+packadd {
+  'b0o/incline.nvim',
+  dependencies = {
+    'nvim-tree/nvim-web-devicons',
+  },
+  config = conf.incline,
+}

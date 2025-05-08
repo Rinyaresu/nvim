@@ -63,7 +63,7 @@ end
 
 function M.incline()
   local colors = {
-    background = '#1F1F28',
+    background = '#f8f8f7',
     foreground = '#DCD7BA',
     cursor = '#E46876',
     black = '#16161D',

@@ -20,10 +20,14 @@ function M.lsp_config()
             highlight! DiagnosticVirtualTextWarn  guifg=#DCD7BA gui=italic
             highlight! DiagnosticVirtualTextInfo  guifg=#DCD7BA gui=italic
             highlight! DiagnosticVirtualTextHint  guifg=#DCD7BA gui=italic
-            highlight! DiagnosticLineError guibg=#43242B
-            highlight! DiagnosticLineWarn guibg=#49443C
-            highlight! DiagnosticLineInfo guibg=#2D4F67
-            highlight! DiagnosticLineHint guibg=#54546D
+            " highlight! DiagnosticLineError guibg=#43242B
+            " highlight! DiagnosticLineWarn guibg=#49443C
+            " highlight! DiagnosticLineInfo guibg=#2D4F67
+            " highlight! DiagnosticLineHint guibg=#54546D
+            highlight! DiagnosticLineError guibg=#F4E2E5
+            highlight! DiagnosticLineWarn  guibg=#F6EEE2
+            highlight! DiagnosticLineInfo  guibg=#E1F0F5
+            highlight! DiagnosticLineHint  guibg=#E3EEEE
           ]]
 
   vim.diagnostic.config {

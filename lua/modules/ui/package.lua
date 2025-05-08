@@ -1,11 +1,17 @@
 local conf = require 'modules.ui.config'
 
 packadd {
-
   'rebelot/kanagawa.nvim',
   lazy = false,
   priority = 1000,
   config = conf.kanagawa,
+}
+
+packadd {
+  'catppuccin/nvim',
+  lazy = false,
+  priority = 1000,
+  config = conf.catppuccin,
 }
 
 packadd {

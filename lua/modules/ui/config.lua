@@ -14,6 +14,53 @@ function M.kanagawa()
   }
 end
 
+function M.catppuccin()
+  require('catppuccin').setup {
+    color_overrides = {
+      latte = {
+        base = '#f8f8f7',
+        text = '#654735',
+        mantle = '#F5F5F0',
+        crust = '#F5F5F0',
+      },
+    },
+
+    styles = {
+      comments = { 'italic' },
+      functions = { 'bold' },
+      keywords = { 'italic' },
+      operators = { 'bold' },
+      conditionals = { 'bold' },
+      loops = { 'bold' },
+      booleans = { 'bold', 'italic' },
+      numbers = {},
+      types = {},
+      strings = {},
+      variables = {},
+      properties = {},
+    },
+
+    integrations = {
+      treesitter = true,
+      native_lsp = {
+        enabled = true,
+        virtual_text = {
+          errors = { 'italic' },
+          hints = { 'italic' },
+          warnings = { 'italic' },
+          information = { 'italic' },
+        },
+        underlines = {
+          errors = { 'underline' },
+          hints = { 'underline' },
+          warnings = { 'underline' },
+          information = { 'underline' },
+        },
+      },
+    },
+  }
+end
+
 function M.incline()
   local colors = {
     background = '#1F1F28',

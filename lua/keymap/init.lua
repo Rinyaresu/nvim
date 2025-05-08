@@ -9,8 +9,8 @@ map.n {
   ['K'] = cmd 'Lspsaga hover_doc',
   ['ga'] = cmd 'Lspsaga code_action',
   ['gr'] = cmd 'Lspsaga rename',
-  ['gd'] = cmd 'Lspsaga peek_definition',
-  ['gp'] = cmd 'Lspsaga goto_definition',
+  ['gp'] = cmd 'Lspsaga peek_definition',
+  ['gd'] = cmd 'Lspsaga goto_definition',
   ['gh'] = cmd 'Lspsaga finder',
   ['<Leader>ot'] = cmd 'Lspsaga outline',
 

@@ -64,7 +64,6 @@ function M.conform()
       javascript = { 'prettier', 'eslint' },
       javascriptreact = { 'prettier', 'eslint' },
       eruby = { 'htmlbeautifier' },
-      markdown = { 'markdownlint-cli2' },
       astro = { 'prettier' },
     },
   }

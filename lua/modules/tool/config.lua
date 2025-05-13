@@ -19,7 +19,7 @@ function M.neogit()
     },
     integrations = {
       diffview = true,
-      mini_pick = true,
+      snacks = true,
     },
     preview_buffer = {
       kind = 'split',

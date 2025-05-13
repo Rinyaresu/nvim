@@ -25,7 +25,7 @@ map.n {
     Snacks.picker.git_status()
   end,
   ['<leader>fr'] = function()
-    Snacks.picker.recent()
+    Snacks.picker.recent { filter = { cwd = true } }
   end,
   ['<leader>gd'] = function()
     Snacks.picker.lsp_definitions()

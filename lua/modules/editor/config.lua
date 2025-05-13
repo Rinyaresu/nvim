@@ -72,7 +72,6 @@ function M.mini()
   require('mini.pairs').setup()
   require('mini.comment').setup()
   require('mini.indentscope').setup {}
-  require('mini.pick').setup {}
 
   require('mini.files').setup {
     mappings = {

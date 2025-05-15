@@ -105,20 +105,35 @@ function M.incline()
       end
 
       local function get_git_branch_name()
-        local git_dir = vim.fn.finddir('.git', '.;')
-        if git_dir ~= '' then
-          local head_file = io.open(git_dir .. '/HEAD', 'r')
-          if head_file then
-            local content = head_file:read '*all'
-            head_file:close()
+        local branch_name = vim.fn.system 'git symbolic-ref --quiet --short HEAD'
+        local exit_code = vim.v.shell_error
 
-            local branch = content:match 'ref: refs/heads/(.-)%s*$' or content:sub(1, 7) or ''
-            if branch ~= '' then
+        if exit_code == 0 and branch_name ~= '' then
+          local branch = branch_name:gsub('%s*$', '')
+          if branch ~= '' then
+            return { { ' ', guifg = colors.red }, { branch, guifg = colors.red } }
+          end
+        else
+          local branch_name = vim.fn.system 'git rev-parse --abbrev-ref HEAD'
+          local exit_code = vim.v.shell_error
+
+          if exit_code == 0 and branch_name ~= '' then
+            local branch = branch_name:gsub('%s*$', '')
+
+            if branch ~= '' and branch ~= 'HEAD' then
               return { { ' ', guifg = colors.red }, { branch, guifg = colors.red } }
+            elseif branch == 'HEAD' then
+              local commit_hash = vim.fn.system 'git rev-parse --short HEAD'
+
+              if vim.v.shell_error == 0 and commit_hash ~= '' then
+                local hash = commit_hash:gsub('%s*$', '')
+
+                return { { ' ', guifg = colors.red }, { hash, guifg = colors.red } }
+              end
             end
           end
-          return ''
         end
+
         return ''
       end
 

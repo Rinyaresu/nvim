@@ -56,11 +56,15 @@ function M.conform()
           sql_formatter_config_file,
         },
       },
+
+      -- rubocop = {
+      --   args = { '-a', '-f', 'quiet', '--stderr', '--stdin', '$FILENAME' },
+      -- },
     },
 
     formatters_by_ft = {
       lua = { 'stylua' },
-      ruby = { 'rubocop' },
+      -- ruby = { 'rubocop' },
       javascript = { 'prettier', 'eslint' },
       javascriptreact = { 'prettier', 'eslint' },
       eruby = { 'htmlbeautifier' },

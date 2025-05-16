@@ -113,7 +113,7 @@ function M.lsp_config()
     on_attach = function(client, bufnr)
       on_attach(client, bufnr)
 
-      client.server_capabilities.documentFormattingProvider = false -- we want to use rubocop
+      client.server_capabilities.documentFormattingProvider = true -- we want to use rubocop
     end,
     capabilities = capabilities,
     filetypes = { 'ruby', 'eruby' },
@@ -123,7 +123,7 @@ function M.lsp_config()
         diagnostic = true,
         completion = true,
         hover = true,
-        formatting = false,
+        formatting = true,
         symbols = true,
         definitions = true,
         rename = true,

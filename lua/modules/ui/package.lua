@@ -1,10 +1,11 @@
 local conf = require 'modules.ui.config'
 
 packadd {
-  'rebelot/kanagawa.nvim',
+  'rose-pine/neovim',
+  name = 'rose-pine',
   lazy = false,
   priority = 1000,
-  config = conf.kanagawa,
+  config = conf.rosepine,
 }
 
 packadd {

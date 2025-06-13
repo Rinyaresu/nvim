@@ -1,81 +1,38 @@
 local M = {}
 
-function M.kanagawa()
-  require('kanagawa').setup {
-    undercurl = true, -- enable undercurls
-    commentStyle = { italic = true },
-    functionStyle = {},
-    keywordStyle = { italic = true },
-    statementStyle = { bold = true },
-    typeStyle = {},
-    transparent = false, -- do not set background color
-    dimInactive = false, -- dim inactive window `:h hl-NormalNC`
-    terminalColors = true, -- define vim.g.terminal_color_{0,17}
-  }
-end
-
-function M.catppuccin()
-  require('catppuccin').setup {
-    color_overrides = {
-      latte = {
-        base = '#f8f8f7',
-        text = '#654735',
-        mantle = '#F5F5F0',
-        crust = '#F5F5F0',
-      },
-    },
-
+function M.rosepine()
+  require('rose-pine').setup {
     styles = {
-      comments = { 'italic' },
-      functions = { 'bold' },
-      keywords = { 'italic' },
-      operators = { 'bold' },
-      conditionals = { 'bold' },
-      loops = { 'bold' },
-      booleans = { 'bold', 'italic' },
-      numbers = {},
-      types = {},
-      strings = {},
-      variables = {},
-      properties = {},
+      bold = true,
+      italic = false,
+      transparency = false,
     },
 
-    integrations = {
-      treesitter = true,
-      native_lsp = {
-        enabled = true,
-        virtual_text = {
-          errors = { 'italic' },
-          hints = { 'italic' },
-          warnings = { 'italic' },
-          information = { 'italic' },
-        },
-        underlines = {
-          errors = { 'underline' },
-          hints = { 'underline' },
-          warnings = { 'underline' },
-          information = { 'underline' },
-        },
-      },
+    highlight_groups = {
+      ['@comment'] = { italic = true },
+      ['@function'] = { bold = true },
+      ['@keyword'] = { italic = true, bold = true },
+      ['@operator'] = { bold = true },
+      ['@boolean'] = { bold = true, italic = true },
     },
   }
 end
 
 function M.incline()
   local colors = {
-    background = '#f8f8f7',
-    foreground = '#DCD7BA',
-    cursor = '#E46876',
-    black = '#16161D',
-    red = '#E82424',
-    green = '#76946A',
-    yellow = '#DCA561',
-    blue = '#7E9CD8',
-    magenta = '#957FB8',
-    cyan = '#7AA89F',
-    white = '#C8C093',
-    bright_black = '#54546D',
-    bright_white = '#C5C9C5',
+    background = '#faf4ed',
+    foreground = '#464261',
+    cursor = '#b4637a',
+    black = '#f2e9e1',
+    red = '#b4637a',
+    green = '#286983',
+    yellow = '#ea9d34',
+    blue = '#56949f',
+    magenta = '#907aa9',
+    cyan = '#d7827e',
+    white = '#464261',
+    bright_black = '#797593',
+    bright_white = '#464261',
   }
 
   require('incline').setup {

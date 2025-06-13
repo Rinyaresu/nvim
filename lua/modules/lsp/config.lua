@@ -17,17 +17,13 @@ function M.lsp_config()
 
   vim.cmd [[
             highlight! DiagnosticVirtualTextError guifg=#DCD7BA gui=italic
-            highlight! DiagnosticVirtualTextWarn  guifg=#DCD7BA gui=italic
-            highlight! DiagnosticVirtualTextInfo  guifg=#DCD7BA gui=italic
-            highlight! DiagnosticVirtualTextHint  guifg=#DCD7BA gui=italic
-            " highlight! DiagnosticLineError guibg=#43242B
-            " highlight! DiagnosticLineWarn guibg=#49443C
-            " highlight! DiagnosticLineInfo guibg=#2D4F67
-            " highlight! DiagnosticLineHint guibg=#54546D
-            highlight! DiagnosticLineError guibg=#F4E2E5
-            highlight! DiagnosticLineWarn  guibg=#F6EEE2
-            highlight! DiagnosticLineInfo  guibg=#E1F0F5
-            highlight! DiagnosticLineHint  guibg=#E3EEEE
+            highlight! DiagnosticVirtualTextWarn guifg=#DCD7BA gui=italic
+            highlight! DiagnosticVirtualTextInfo guifg=#DCD7BA gui=italic
+            highlight! DiagnosticVirtualTextHint guifg=#DCD7BA gui=italic
+            highlight! DiagnosticLineError guibg=#F3E6E2
+            highlight! DiagnosticLineWarn guibg=#F8EBDB
+            highlight! DiagnosticLineInfo guibg=#EAEAE5
+            highlight! DiagnosticLineHint guibg=#EFE8E6
           ]]
 
   vim.diagnostic.config {
@@ -123,7 +119,7 @@ function M.lsp_config()
         diagnostic = true,
         completion = true,
         hover = true,
-        formatting = true,
+        formatting = false,
         symbols = true,
         definitions = true,
         rename = true,

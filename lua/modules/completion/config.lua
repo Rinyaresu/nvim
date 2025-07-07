@@ -68,6 +68,8 @@ function M.conform()
       markdown = { 'prettier' },
       css = { 'prettier' },
       html = { 'prettier' },
+      bash = { 'shfmt' },
+      sh = { 'shfmt' },
     },
   }
 

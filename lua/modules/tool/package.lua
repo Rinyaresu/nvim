@@ -13,7 +13,6 @@ packadd {
 
   'NeogitOrg/neogit',
   event = 'VeryLazy',
-  commit = '7cec58c',
   dependencies = {
     'nvim-lua/plenary.nvim',
     'sindrets/diffview.nvim',

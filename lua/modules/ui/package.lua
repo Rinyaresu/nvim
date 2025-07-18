@@ -19,28 +19,31 @@ packadd {
   'folke/todo-comments.nvim',
   event = 'VimEnter',
   dependencies = { 'nvim-lua/plenary.nvim' },
-  opts = { signs = false },
+  opts = { signs = true },
 }
 
 packadd {
   'MeanderingProgrammer/render-markdown.nvim',
-  opts = {
-    code = {
-      sign = false,
-      width = 'block',
-      right_pad = 1,
-    },
-    heading = {
-      sign = false,
-      icons = {},
-    },
-  },
+  ft = { 'markdown', 'codecompanion' },
+  -- opts = {
+  --
+  --   code = {
+  --     sign = false,
+  --     width = 'block',
+  --     right_pad = 1,
+  --   },
+  --   heading = {
+  --     sign = false,
+  --     icons = {},
+  --   },
+  -- },
 }
 
 packadd {
   'lewis6991/gitsigns.nvim',
   opts = {
     attach_to_untracked = false,
+    signcolumn = false,
     signs = {
       add = { text = '+' },
       change = { text = '~' },

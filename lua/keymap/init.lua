@@ -24,6 +24,9 @@ map.n {
   ['<leader><tab>'] = function()
     Snacks.picker.git_status()
   end,
+  ['<leader>,'] = function()
+    Snacks.picker.buffers()
+  end,
   ['<leader>fr'] = function()
     Snacks.picker.recent { filter = { cwd = true } }
   end,

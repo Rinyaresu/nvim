@@ -2,6 +2,7 @@ local conf = require 'modules.ai.config'
 
 packadd {
   'olimorris/codecompanion.nvim',
+  event = 'BufEnter',
   dependencies = {
     { 'nvim-lua/plenary.nvim', branch = 'master' },
     'nvim-treesitter/nvim-treesitter',

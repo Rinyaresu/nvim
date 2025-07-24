@@ -73,6 +73,7 @@ function M.mini()
   require('mini.comment').setup()
   require('mini.indentscope').setup {}
   require('mini.diff').setup {}
+  require('mini.move').setup {}
 
   require('mini.files').setup {
     mappings = {
@@ -89,6 +90,7 @@ function M.mini()
       trim_right = '>',
     },
   }
+
   _G.MiniFiles = require 'mini.files'
 end
 

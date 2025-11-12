@@ -17,3 +17,7 @@ packadd {
   event = 'LspAttach',
   config = conf.lsp_saga,
 }
+
+packadd {
+  'kchmck/vim-coffee-script',
+}

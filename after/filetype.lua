@@ -1,5 +1,1 @@
-vim.filetype.add {
-  extension = {
-    coffee = 'javascript',
-  },
-}
+vim.filetype.add {}

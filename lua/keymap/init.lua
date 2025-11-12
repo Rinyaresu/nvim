@@ -95,7 +95,4 @@ map.n {
   end,
 }
 
-map.nx('<C-a>', cmd 'CodeCompanionActions')
-map.nx('<leader>cc', cmd 'CodeCompanionChat Toggle')
-map.x('<leader>ca', cmd 'CodeCompanionChat Add')
 map.nx('ga', cmd 'Lspsaga code_action')

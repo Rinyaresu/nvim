@@ -60,7 +60,10 @@ end
 function M.snacks()
   local snacks = require 'snacks'
   snacks.setup {
-    picker = { enabled = true },
+    picker = {
+      enabled = true,
+      layout = { preset = 'ivy_split' },
+    },
     bigfile = { enabled = true },
     quickfile = { enabled = true },
   }

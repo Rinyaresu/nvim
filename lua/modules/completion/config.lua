@@ -9,15 +9,7 @@ function M.blink()
       nerd_font_variant = 'mono',
     },
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'buffer', 'copilot', 'codecompanion' },
-      providers = {
-        copilot = {
-          name = 'copilot',
-          module = 'blink-copilot',
-          score_offset = 100,
-          async = true,
-        },
-      },
+      default = { 'lsp', 'path', 'snippets', 'buffer' },
     },
     completion = {
       menu = {

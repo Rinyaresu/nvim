@@ -6,13 +6,19 @@ function M.lsp_config()
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   end
 
-  local lspconfig = require 'lspconfig'
-  local mason_lspconfig = require 'mason-lspconfig'
   local capabilities = require('blink.cmp').get_lsp_capabilities(vim.lsp.protocol.make_client_capabilities())
   capabilities.textDocument.completion.completionItem.snippetSupport = true
   capabilities.textDocument.foldingRange = {
     dynamicRegistration = false,
     lineFoldingOnly = true,
+  }
+
+  local mason_servers = {
+    'lua_ls',
+    'jsonls',
+    'html',
+    'cssls',
+    'marksman',
   }
 
   vim.cmd [[
@@ -49,85 +55,57 @@ function M.lsp_config()
     },
   }
 
-  local ensure_installed = vim.tbl_keys {}
-  vim.list_extend(ensure_installed, {
-    'lua_ls',
-    'stylua',
-    'jsonls',
-    'html',
-    'cssls',
-    'prettier',
-    'marksman',
-    'ts_ls',
+  require('mason-lspconfig').setup {
+    automatic_installation = { exclude = { 'ruby_lsp', 'ts_ls' } },
+    ensure_installed = mason_servers,
+  }
+
+  vim.lsp.config('*', {
+    on_attach = on_attach,
+    capabilities = capabilities,
   })
 
-  require('mason-tool-installer').setup { ensure_installed = ensure_installed }
+  for _, server in ipairs(mason_servers) do
+    vim.lsp.config(server, {})
+  end
 
-  mason_lspconfig.setup_handlers {
-    -- The first entry (without a key) will be the default handler
-    -- and will be called for each installed server that doesn't have
-    -- a dedicated handler.
-    function(server_name) -- default handler (optional)
-      lspconfig[server_name].setup {
-        on_attach = on_attach,
-        capabilities = capabilities,
-      }
-    end,
+  vim.lsp.config('html', {
+    filetypes = { 'html' },
+  })
 
-    ['html'] = function()
-      lspconfig.html.setup {
-        on_attach = on_attach,
-        capabilities = capabilities,
-        filetypes = { 'html' },
-      }
-    end,
-
-    ['astro'] = function()
-      lspconfig.astro.setup {
-        on_attach = on_attach,
-        capabilities = capabilities,
-        filetypes = { 'astro' },
-      }
-    end,
-
-    ['jsonls'] = function()
-      lspconfig.jsonls.setup {
-        on_attach = on_attach,
-        capabilities = capabilities,
-        commands = {
-          Format = {
-            function()
-              vim.lsp.buf.range_formatting({}, { 0, 0 }, { vim.fn.line '$', 0 })
-            end,
-          },
-        },
-      }
-    end,
-  }
-
-  lspconfig['solargraph'].setup {
-    on_attach = function(client, bufnr)
-      on_attach(client, bufnr)
-
-      client.server_capabilities.documentFormattingProvider = true -- we want to use rubocop
-    end,
-    capabilities = capabilities,
-    filetypes = { 'ruby', 'eruby' },
-    settings = {
-      solargraph = {
-        useBundler = true,
-        diagnostic = true,
-        completion = true,
-        hover = true,
-        formatting = false,
-        symbols = true,
-        definitions = true,
-        rename = true,
-        references = true,
-        folding = true,
+  vim.lsp.config('jsonls', {
+    commands = {
+      Format = {
+        function()
+          vim.lsp.buf.range_formatting({}, { 0, 0 }, { vim.fn.line '$', 0 })
+        end,
       },
     },
-  }
+  })
+
+  vim.lsp.config('ts_ls', {})
+
+  vim.lsp.config('ruby_lsp', {
+    on_attach = function(client, bufnr)
+      on_attach(client, bufnr)
+      client.server_capabilities.documentFormattingProvider = true
+    end,
+    filetypes = { 'ruby', 'eruby' },
+  })
+
+  vim.lsp.enable 'ts_ls'
+  vim.lsp.enable 'ruby_lsp'
+
+  -- Solargraph alternative (commented out)
+  -- vim.lsp.config('solargraph', {
+  --   on_attach = function(client, bufnr)
+  --     on_attach(client, bufnr)
+  --     client.server_capabilities.documentFormattingProvider = false
+  --   end,
+  --   cmd = { 'bundle', 'exec', 'solargraph', 'stdio' },
+  --   filetypes = { 'ruby', 'eruby' },
+  -- })
+  -- vim.lsp.enable('solargraph')
 end
 
 function M.lsp_saga()

@@ -4,10 +4,8 @@ packadd {
   'neovim/nvim-lspconfig',
   lazy = false,
   dependencies = {
-    { 'williamboman/mason.nvim', commit = 'fc98833' },
-    { 'williamboman/mason-lspconfig.nvim', commit = '1a31f82' },
-    { 'WhoIsSethDaniel/mason-tool-installer.nvim' },
-    { 'folke/neodev.nvim' },
+    { 'williamboman/mason.nvim' },
+    { 'williamboman/mason-lspconfig.nvim' },
   },
   config = conf.lsp_config,
 }

@@ -29,6 +29,10 @@ function M.nvim_treesitter()
       'cmake',
     },
 
+    indent = { enable = true },
+    matchup = { enable = true },
+    folds = { enable = true },
+
     highlight = {
       enable = true,
       disable = function(_, buf)

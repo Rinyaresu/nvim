@@ -61,8 +61,8 @@ function M.conform()
     formatters_by_ft = {
       lua = { 'stylua' },
       ruby = { 'rubocop' },
-      javascript = { 'prettier', 'eslint' },
-      javascriptreact = { 'prettier', 'eslint' },
+      javascript = { 'prettier' },
+      javascriptreact = { 'prettier' },
       eruby = { 'htmlbeautifier' },
       astro = { 'prettier' },
       markdown = { 'prettier' },

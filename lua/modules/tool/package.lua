@@ -46,3 +46,9 @@ packadd {
     end,
   },
 }
+
+packadd {
+  'tpope/vim-rails',
+  event = { 'BufReadPre', 'BufNewFile' },
+  dependencies = {},
+}

@@ -2,6 +2,8 @@ local api = vim.api
 local au = api.nvim_create_autocmd
 local group = vim.api.nvim_create_augroup('Group', {})
 
+require('internal.test_runner').setup()
+
 au('BufWritePre', {
   group = group,
   pattern = { '/tmp/*', 'COMMIT_EDITMSG', 'MERGE_MSG', '*.tmp', '*.bak' },

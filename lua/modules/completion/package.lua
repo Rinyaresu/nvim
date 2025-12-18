@@ -8,6 +8,7 @@ packadd {
   config = conf.blink,
   build = 'cargo build --release',
   opts_extend = { 'sources.default' },
+  event = 'BufEnter',
 }
 
 packadd {

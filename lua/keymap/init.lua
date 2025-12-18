@@ -62,6 +62,9 @@ map.n {
   -- Runs API requests
   ['<leader>rr'] = cmd 'Rest run',
 
+  -- Run open tests in tmux
+  ['<leader>rt'] = cmd 'RunOpenTests',
+
   -- Selection and utilities
   ['<leader>a'] = cmd 'keepjumps normal! ggVG',
   ['<leader>o'] = cmd 'setlocal spell! spelllang=pt',
